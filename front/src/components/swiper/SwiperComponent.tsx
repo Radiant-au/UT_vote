@@ -57,7 +57,7 @@ function SwiperComponent({ title, data , onActiveIndexChange}: SwiperComponentPr
               <div className="size-60 bg-gradient-to-r from-pink-300 via-red-400 to-violet-700 rounded-full flex items-center justify-center text-white font-bold glow-container mb-4">
                 <img
                   className="size-56 object-cover rounded-full"
-                  src={base_api_url + item.profileImg}
+                  src={base_api_url + "/" + item.profileImg}
                   alt={item.name}
                 />
               </div>
