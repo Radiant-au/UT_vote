@@ -7,7 +7,6 @@ export interface SelectionResponse {
     profileImg?: string; 
     major: string;
     hobby: string;
-    dream: string;  
 }
 
 export const getAllSelections = async () :Promise<SelectionResponse[]> => {

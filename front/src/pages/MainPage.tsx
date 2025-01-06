@@ -7,8 +7,6 @@ import Button from "@/components/ui/Button";
 import { useEffect, useState } from "react";
 
 
-
-
 function MainPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [maleData , setMaleData] = useState<SelectionResponse[]>([]);

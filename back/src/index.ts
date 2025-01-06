@@ -18,7 +18,7 @@ app.use(helmet({
 }));
 // Logging middleware192
 app.use(cors({
-    origin: ['http://localhost:5000' , 'http://.168.110.55:5000'], // Allow only your React app in development
+    origin: ['http://localhost:5000' , 'http://192.168.110.55:5000'], // Allow only your React app in development
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,               // Allow cookies if you're using authentication

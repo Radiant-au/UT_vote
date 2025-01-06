@@ -8,8 +8,8 @@ interface SpotlightCardProps {
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
-  className = "",
-  spotlightColor = "rgba(159, 90, 253, 0.3)",
+  className = "", 
+  spotlightColor = "rgba(159, 90, 253, 0.8)",
 }) => {
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -58,7 +58,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden p-8 ${className}`}
+      className={`relative rounded-3xl border border-neutral-800 bg-transparent backdrop-blur-sm overflow-hidden p-8 ${className}`}
       tabIndex={-1} // To make the div focusable if needed
     >
       <div

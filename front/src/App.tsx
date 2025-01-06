@@ -9,6 +9,7 @@ import {
 import { useEffect, useState, Suspense } from "react";
 import Loader from "./common/Loader";
 import AdminLogin from "./pages/AdminLogin";
+import AdminPage from "./pages/AdminPage";
 
 const App = () => {
   const { isCodeAuthenticated, isAdminAuthenticated } = useAuthContext();
@@ -43,7 +44,7 @@ const App = () => {
 
         {/* Add all admin protected routes here */}
         <Route element={<ProtectedAdminLayout />}>
-          <Route path="/admin" element={<h1 className="text-2xl text-red-500">THis is admin</h1>} />
+          <Route path="/admin" element={<AdminPage/>} />
         </Route>
 
         <Route path="*" element={<Navigate to='/' />} />

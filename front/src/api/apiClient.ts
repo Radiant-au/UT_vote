@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const base_api_url = "https://radiantspace.me/api/";
+export const base_api_url = "http://192.168.110.55:8020/";
 
 const apiClient = axios.create({
   baseURL: base_api_url,

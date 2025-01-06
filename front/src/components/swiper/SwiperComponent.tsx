@@ -5,6 +5,8 @@ import { EffectCoverflow } from "swiper/modules";
 import { SelectionResponse } from "@/api/selectionApi";
 import { base_api_url } from "@/api/apiClient";
 import { useState } from "react";
+import KingCrown from "@/assets/King.png";
+import QueenCrown from "@/assets/Queen.png";
 
 interface SwiperComponentProps {
   title: string;
@@ -12,9 +14,14 @@ interface SwiperComponentProps {
   onActiveIndexChange: (newIndex: number) => void;
 }
 
-function SwiperComponent({ title, data , onActiveIndexChange}: SwiperComponentProps) {
+function SwiperComponent({
+  title,
+  data,
+  onActiveIndexChange,
+}: SwiperComponentProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [fade, setFade] = useState(false);
+  const hobbies = data[activeIndex]?.hobby.split(",") || [];
 
   const handleSlideChange = (newIndex: number) => {
     // Trigger fade-out animation
@@ -32,9 +39,21 @@ function SwiperComponent({ title, data , onActiveIndexChange}: SwiperComponentPr
     <div className="flex flex-col items-center justify-center">
       <div className="max-w-[390px] py-10 px-4">
         {/* Header */}
-        <h1 className="text-primary font-poppins text-2xl font-bold mb-6 text-center">
-          {title}
-        </h1>
+        <div className="flex items-center justify-center mb-6">
+          <img
+            src={title === "KING" ? KingCrown : QueenCrown}
+            alt="Crown"
+            className="size-10"
+          />
+          <h1 className="font-lobster text-4xl font-bold text-center mx-4 bg-gradient-to-r from-[#d3d28a] to-[#ffffff] bg-clip-text text-transparent">
+            {title}
+          </h1>
+          <img
+            src={title === "KING" ? KingCrown : QueenCrown}
+            alt="Crown"
+            className="size-10"
+          />
+        </div>
 
         {/* Swiper Container */}
         <Swiper
@@ -70,7 +89,6 @@ function SwiperComponent({ title, data , onActiveIndexChange}: SwiperComponentPr
               <h2>Name:</h2>
               <h2>Major:</h2>
               <h2>Hobby:</h2>
-              <h2>Dream:</h2>
             </div>
             <div
               className={`font-poppins flex flex-col gap-3 w-2/3 transition-opacity duration-300 ${
@@ -79,8 +97,16 @@ function SwiperComponent({ title, data , onActiveIndexChange}: SwiperComponentPr
             >
               <h2>{data[activeIndex].name}</h2>
               <h2>{data[activeIndex].major}</h2>
-              <h2>{data[activeIndex].hobby}</h2>
-              <h2>{data[activeIndex].dream || "-"}</h2>
+              <div className="flex flex-wrap gap-2">
+                {hobbies.map((hobby, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-r text-xs from-pink-300 via-red-400 to-violet-700 rounded-full px-4 py-2 text-gray-800 font-poppins font-bold"
+                  >
+                    {hobby}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}

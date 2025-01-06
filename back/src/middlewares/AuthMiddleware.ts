@@ -35,7 +35,6 @@ export async function authenticateAdminToken(req: Request, res: Response, next: 
       return;
     }
     const admin = await AdminRepository.findOneBy({id : decoded.userId});
-    console.log('admin :' , admin);
     if(admin){
         next();
     }else{

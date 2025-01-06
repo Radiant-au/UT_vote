@@ -1,11 +1,15 @@
 import VotingPinInput from "@/components/VotingPinInput";
 import utyccImage from "@/assets/utycc.png";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import TwinklingParticles from "@/components/ui/TwinklingParticles ";
 
 export function AuthCodePage() {
   return (
     <div className="min-h-screen py-6 flex flex-col justify-center items-center sm:py-12">
-      <SpotlightCard className="w-[350px]">
+      <div className="absolute z-0">
+        <TwinklingParticles />
+      </div>
+      <SpotlightCard className="w-[350px] z-10 relative">
         <div>
           <div className="flex flex-col items-center">
             <div className="w-full">
@@ -27,6 +31,7 @@ export function AuthCodePage() {
           <VotingPinInput />
         </div>
       </SpotlightCard>
+
     </div>
   );
 }

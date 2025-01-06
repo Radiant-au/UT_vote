@@ -10,8 +10,12 @@ export default {
   		fontFamily: {
   			poppins: [
   				'Poppins',
-  				'sans-serif'
-  			]
+  				'sans-serif',
+  			],
+			lobster:[
+				'Lobster',
+				'sans-seriff'
+			]
   		},
   		colors: {
   			bluish: '#2d2a98',
@@ -65,7 +69,21 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		  keyframes: {
+			twinkle: {
+			  '0%, 100%': { opacity: 1 },
+			  '50%': { opacity: 0.2 },
+			},
+			move: {
+			  '0%': { transform: 'translateY(0) translateX(0)' },
+			  '100%': { transform: 'translateY(-200px) translateX(-100)' },
+			},
+		  },
+		  animation: {
+			twinkle: 'twinkle 0.2s infinite',
+			move: 'move 6s infinite linear',
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
