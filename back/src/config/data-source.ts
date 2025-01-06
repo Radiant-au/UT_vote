@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource({
   entities: [path.resolve(__dirname, "../entities/**/*.ts")],
   migrations: [path.resolve(__dirname, "../migrations/**/*.ts")],
   synchronize: false,
-  logging: ["schema"],
+  logging: true,
 });
 
 AppDataSource.initialize()

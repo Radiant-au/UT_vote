@@ -85,13 +85,13 @@ function SwiperComponent({
         </Swiper>
         {data[activeIndex] && (
           <div className="flex items-center justify-center mt-3">
-            <div className="font-poppins flex flex-col gap-3 w-1/3 items-center ml-4">
+            <div className="font-poppins text-lg font-bold flex flex-col gap-4 w-1/3 items-center ml-4">
               <h2>Name:</h2>
               <h2>Major:</h2>
               <h2>Hobby:</h2>
             </div>
             <div
-              className={`font-poppins flex flex-col gap-3 w-2/3 transition-opacity duration-300 ${
+              className={`font-poppins text-lg font-bold flex flex-col gap-3 w-2/3 transition-opacity duration-300 ${
                 fade ? "opacity-0" : "opacity-100"
               }`}
             >

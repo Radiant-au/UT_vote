@@ -11,8 +11,8 @@ export interface VoteCountsResponseDto {
     femaleVotes: VoteCountDto[];
 }
 
-export const CodeLogin = async () :Promise<VoteCountsResponseDto> => {
-    const response = await apiClient.get('/');
+export const getVoteCounts = async () :Promise<VoteCountsResponseDto> => {
+    const response = await apiClient.get('/vote');
     return response.data;
   };
   

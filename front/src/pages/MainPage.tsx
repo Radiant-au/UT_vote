@@ -2,6 +2,7 @@ import { getPinCodeStatus } from "@/api/authApi";
 import { getAllSelections, SelectionResponse } from "@/api/selectionApi";
 import { BtnPass } from "@/api/voteApi";
 import Loader from "@/common/Loader";
+import Nav from "@/components/Nav";
 import SwiperComponent from "@/components/swiper/SwiperComponent";
 import Button from "@/components/ui/Button";
 import { useEffect, useState } from "react";
@@ -56,6 +57,7 @@ function MainPage() {
 
   return (
     <div className="min-h-screen py-6 flex flex-col justify-center items-center sm:py-12">
+      <Nav/>
         {/* Male Swiper */}
       <SwiperComponent title="KING" data={maleData} onActiveIndexChange={(newIndex) => setActiveMaleId(maleData[newIndex] ? { id: maleData[newIndex].id, name: maleData[newIndex].name } : null)} />
       {/* Female Swiper */}

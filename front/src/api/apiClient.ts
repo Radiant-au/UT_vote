@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const base_api_url = "http://192.168.110.55:8020/";
+export const base_api_url = "https://radiantspace.me/api/";
 
 const apiClient = axios.create({
   baseURL: base_api_url,
@@ -9,7 +9,7 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use(
   (config) => {
     // Check the endpoint to determine which token to use
-    const isAdminRequest = config.url?.startsWith("/admin");
+    const isAdminRequest = window.location.href.includes("/admin");
     const tokenKey = isAdminRequest ? "admin_jwt" : "code_jwt";
     const token = localStorage.getItem(tokenKey);
 
@@ -32,7 +32,7 @@ apiClient.interceptors.response.use(
       if (status === 401 || status === 403) {
         // Handle token removal for both code and admin
         localStorage.removeItem("code_jwt");
-        localStorage.removeItem("admin_jwt");
+        // localStorage.removeItem("admin_jwt");
 
         if (status === 401) {
           console.warn("Unauthorized: Please log in again.");
